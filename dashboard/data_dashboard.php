@@ -23,7 +23,7 @@ function getBarangSedangDisewa($pdo) {
 
 // 3. Fungsi Card 3: Pendapatan Hari Ini
 function getPendapatanHariIni($pdo) {
-    $sql = "SELECT SUM(total_tagihan + COALESCE(total_denda, 0)) as total 
+    $sql = "SELECT SUM(total_tagihan + COALESCE(nominal_denda, 0)) as total 
             FROM transaksi 
             WHERE status_transaksi = 'selesai' 
             AND DATE(waktu_aktual_kembali) = CURRENT_DATE";
